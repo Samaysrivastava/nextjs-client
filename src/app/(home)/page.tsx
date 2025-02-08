@@ -12,13 +12,14 @@ export default async function Home() {
   // next me component ko async bna skte hai
   // by default it is server component
 
-  const response = await fetch("http://localhost:2000/api/books");
+
+  const response = await fetch(`${process.env.BACKEND_URL}/books`);
   if(!response.ok){
     throw new Error ("An error occured while fetching the books ");
   }
   const books = await response.json();
 
-  console.log("books : ",books);
+  // console.log("books : ",books);
   return (
     <>
         <Banner/>
