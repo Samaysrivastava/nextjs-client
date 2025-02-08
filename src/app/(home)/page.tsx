@@ -1,6 +1,7 @@
 // 'use client'  by this we can make client component
 import Banner from "@/app/(home)/components/Banner";
 import BookList from "@/app/(home)/components/BookList";
+// import { Book } from "@/types";
 // import { books } from "@/data/dummy";
 export default async function Home() {
   // data fetching 
@@ -16,11 +17,12 @@ export default async function Home() {
     throw new Error ("An error occured while fetching the books ");
   }
   const books = await response.json();
-  console.log(books); 
+
+  console.log("books : ",books);
   return (
     <>
         <Banner/>
-        <BookList/>
+        <BookList books={books}/>
     </> 
   );
 }
