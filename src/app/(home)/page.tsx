@@ -1,6 +1,8 @@
 // 'use client'  by this we can make client component
 import Banner from "@/app/(home)/components/Banner";
 import BookList from "@/app/(home)/components/BookList";
+import Loading from "@/components/Loading";
+import { Suspense } from "react";
 // import { Book } from "@/types";
 // import { books } from "@/data/dummy";
 export default async function Home() {
@@ -13,17 +15,16 @@ export default async function Home() {
   // by default it is server component
 
 
-  const response = await fetch(`${process.env.BACKEND_URL}/books`);
-  if(!response.ok){
-    throw new Error ("An error occured while fetching the books ");
-  }
-  const books = await response.json();
+
 
   // console.log("books : ",books);
   return (
     <>
         <Banner/>
-        <BookList books={books}/>
+        <Suspense fallback={<Loading/>}>
+              <BookList/>
+        </Suspense>
+      
     </> 
   );
 }
