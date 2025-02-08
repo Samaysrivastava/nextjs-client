@@ -20,7 +20,7 @@ const BookCard = ({ book }: { book: Book }) => {
         <h2 className="line-clamp-2 text-xl font-bold text-primary-600 text-balance">
           {book.title}
         </h2>
-        <p className="font-bold text-primary-900">{book.description}</p>
+        <p className="line-clamp-2 font-bold text-primary-900">{book.description}</p>
         <Link
           href={`/books/${book._id}`}
           className="py-1 px-2 rounded border border-primary-500 mt-2 inline-block text-primary-500 font-medium text-sm hover:border-primary-100 hover:bg-primary-100 transition"

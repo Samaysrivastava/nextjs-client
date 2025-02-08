@@ -2,9 +2,7 @@ import React from 'react';
 import {Book} from "@/types";
 import BookCard from './BookCard';
 const BookList = async () => {
-  const response = await fetch(`${process.env.BACKEND_URL}/books`,{
-    cache:'no-store'
-  });
+  const response = await fetch(`${process.env.BACKEND_URL}/books`);
   if(!response.ok){
     throw new Error ("An error occured while fetching the books ");
   }
